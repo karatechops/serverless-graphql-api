@@ -1,4 +1,4 @@
-const { ApolloServer, gql } = require('apollo-server');
+const { ApolloServer, gql } = require('apollo-server-lambda');
 
 const typeDefs = gql`
   type Query {
@@ -6,7 +6,7 @@ const typeDefs = gql`
   }
 `;
 
-const resolves = {
+const resolvers = {
   Query: {
     hello: () => 'world!'
   }
@@ -14,13 +14,13 @@ const resolves = {
 
 const server = new ApolloServer({
   typeDefs,
-  resolves,
+  resolvers,
   playground: true
 });
 
-export.handler = server.createHandler({
+exports.handler = server.createHandler({
   cors: {
     origin: '*',
-    credentials: true,
+    credentials: true
   }
 });

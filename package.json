@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/karatechops/serverless-graphql-api"
+  },
   "dependencies": {
     "apollo-server-lambda": "^2.8.1",
     "graphql": "^14.4.2",
